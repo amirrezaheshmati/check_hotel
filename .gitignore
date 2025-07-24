@@ -3,7 +3,7 @@ db.sqlite3
 tests.py
 apps.py
 __init__.py
-migration
+migrations
 wsgi.py
 asgi.py
 __pycache__
