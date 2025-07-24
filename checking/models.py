@@ -5,19 +5,21 @@ from django.db import models
 
 class GuestEntry(models.Model) :
     name = models.CharField(max_length=60)
-    date_added = models.CharField(max_length=15)
+    real_date_added = models.CharField(max_length=15 ,default="1403/")
+    date_added = models.DateTimeField(auto_now_add=True)
     hour_added = models.IntegerField()
     number_phone = models.CharField(max_length=11)
     pearson_code = models.CharField(max_length=10)
-    pearson_post = models.CharField(max_length=60)
-    origin_place = models.CharField(max_length=30)
+    pearson_post = models.CharField(max_length=60 , default=" ")
+    origin_place = models.CharField(max_length=30 , default="Tabriz")
 
     def __str__(self):
         return self.name
 
 class Commodity(models.Model) :
     name = models.CharField(max_length=60)
-    date_added = models.CharField(max_length=15)
+    real_date_added = models.CharField(max_length=15 ,default="1403/")
+    date_added = models.DateTimeField(auto_now_add=True)
     hour_added = models.IntegerField()
     code = models.CharField(max_length=10)
     descript = models.TextField()
@@ -27,11 +29,12 @@ class Commodity(models.Model) :
 
 class Inspecter(models.Model) :
     name = models.CharField(max_length=60)
-    date_added = models.CharField(max_length=15)
+    real_date_added = models.CharField(max_length=15 ,default="1403/")
+    date_added = models.DateTimeField(auto_now_add=True)
     hour_added = models.IntegerField()
     number_phone = models.CharField(max_length=11)
-    pearsone_post = models.CharField(max_length=60)
-    origin_place = models.CharField(max_length=30)
+    pearsone_post = models.CharField(max_length=60, default=" ")
+    origin_place = models.CharField(max_length=30 , default="Tabriz")
     descript = models.TextField()
     
     def __str__(self):
