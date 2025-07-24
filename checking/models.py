@@ -5,6 +5,7 @@ from django.db import models
 
 class GuestEntry(models.Model) :
     name = models.CharField(max_length=60)
+    real_date_added = models.DateTimeField(auto_now_add=True)
     date_added = models.CharField(max_length=15)
     hour_added = models.IntegerField()
     number_phone = models.CharField(max_length=11)
@@ -17,6 +18,7 @@ class GuestEntry(models.Model) :
 
 class Commodity(models.Model) :
     name = models.CharField(max_length=60)
+    real_date_added = models.DateTimeField(auto_now_add=True)
     date_added = models.CharField(max_length=15)
     hour_added = models.IntegerField()
     code = models.CharField(max_length=10)
@@ -27,6 +29,7 @@ class Commodity(models.Model) :
 
 class Inspecter(models.Model) :
     name = models.CharField(max_length=60)
+    real_date_added = models.DateTimeField(auto_now_add=True)
     date_added = models.CharField(max_length=15)
     hour_added = models.IntegerField()
     number_phone = models.CharField(max_length=11)
