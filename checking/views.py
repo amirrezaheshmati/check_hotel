@@ -7,3 +7,8 @@ def index(request) :
 
 def guest(request) :
     return render(request , "checking/guest.html" )
+
+def guest_history(request) :
+    person = GuestEntry.objects.order_by("-date_added")
+    context = {"person" : person}
+    return render(request , "checking/guest_history.html" , context)

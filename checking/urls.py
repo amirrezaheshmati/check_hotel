@@ -6,4 +6,5 @@ app_name = "checking"
 urlpatterns = [
     path("" , views.index , name="index"),
     path("guest/" , views.guest , name="guest"),
+    path("history" , views.guest_history , name="guest_history"),
 ]
