@@ -84,3 +84,12 @@ def delete_guest(request , guest_id) :
         return redirect("checking:guest_list")
     context = {"pearson" : pearson}
     return render(request , "checking/delete_guest.html" , context)
+
+def delete_commedity(request , commedity_id) :
+    pearson = Commodity.objects.get(id= commedity_id)
+    if request.method == "POST" :
+        pearson.show_in_list = False
+        pearson.save()
+        return redirect("checking:commedity_list")
+    context = {"pearson" : pearson}
+    return render(request , "checking/delete_commedity.html" , context)

@@ -8,6 +8,7 @@
         <p>date added : {{pers.real_date_added}} , hour : {{pers.hour_added}}</p>
         <p>commodity code : {{pers.code}}</p>
         <p>descript : {{pers.descript}}</p>
+        <p><a href="{% url 'checking:delete_commedity' pers.id %}">Delete</a></p>
     </li>
     {% empty %}
     <li>nothing</li>

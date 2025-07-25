@@ -17,4 +17,5 @@ urlpatterns = [
     path("guest_list/" , views.guest_list , name="guest_list"),
     path("delete_guest/<int:guest_id>/" , views.delete_guest , name="delete_guest"),
     path("commedity_list/" , views.commedity_list , name="commedity_list"),
+    path("delete_commedity/<int:commedity_id>/" , views.delete_commedity , name="delete_commedity"),
 ]
