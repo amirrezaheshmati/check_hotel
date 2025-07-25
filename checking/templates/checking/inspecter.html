@@ -1,4 +1,6 @@
 {% extends "checking/base.html" %}
 {% block content %}
-<p>Entry , History</p>
+<p>Entry - 
+<a href="{% url 'checking:inspecter_history' %}">History</a>
+</p>
 {% endblock content %}
