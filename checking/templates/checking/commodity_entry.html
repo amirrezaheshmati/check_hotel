@@ -1,0 +1,8 @@
+{% extends "checking/base.html" %}
+{% block content %}
+<form action="{% url 'checking:commodity_entry' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button name="submit">Enter</button>
+</form>
+{% endblock content %}

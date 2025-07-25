@@ -12,4 +12,5 @@ urlpatterns = [
     path("commodity_history/" , views.commodity_history , name="commodity_history"),
     path("inspecter_history/" , views.inspecter_history , name="inspecter_history"),
     path("guest_entry/" , views.guest_entry , name="guest_entry"),
+    path("commodity_entry/" , views.commodity_entry , name="commodity_entry"),
 ]

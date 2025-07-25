@@ -1,6 +1,8 @@
 {% extends "checking/base.html" %}
 {% block content %}
-<p>Entry - Delete - List - 
+<p>Commodity :</p>
+<p><a href="{% url 'checking:commodity_entry' %}">Entry</a> -
+Delete - List - 
 <a href="{% url 'checking:commodity_history' %}">History</a>
 </p>
 {% endblock content %}
