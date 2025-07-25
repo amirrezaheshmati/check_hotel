@@ -30,6 +30,7 @@ class Commodity(models.Model) :
     hour_added = models.IntegerField(default=int(now.strftime("%H")))
     code = models.CharField(max_length=10)
     descript = models.TextField()
+    date_exit = models.CharField(max_length=15 ,null=True , blank=True, default=str(jdatetime.datetime.now().strftime("%Y/%m/%d")))
     show_in_list = models.BooleanField(default=True)
     owner_com_c = models.ForeignKey(User , on_delete=models.CASCADE , related_name="com_c", null=True , blank=True)
     owner_com_d = models.ForeignKey(User , on_delete=models.CASCADE ,related_name="com_d" , null=True , blank=True)
