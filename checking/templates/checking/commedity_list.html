@@ -1,0 +1,16 @@
+{% extends "checking/base.html" %}
+{% block content %}
+<p>Commedity List:</p>
+<ul>
+    {% for pers in pearson %}
+    <li>
+        <p>name : {{pers.name}}</p>
+        <p>date added : {{pers.real_date_added}} , hour : {{pers.hour_added}}</p>
+        <p>commodity code : {{pers.code}}</p>
+        <p>descript : {{pers.descript}}</p>
+    </li>
+    {% empty %}
+    <li>nothing</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

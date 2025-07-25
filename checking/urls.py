@@ -16,4 +16,5 @@ urlpatterns = [
     path("inspecter_entry/" , views.inspecter_entry , name="inspecter_entry"),
     path("guest_list/" , views.guest_list , name="guest_list"),
     path("delete_guest/<int:guest_id>/" , views.delete_guest , name="delete_guest"),
+    path("commedity_list/" , views.commedity_list , name="commedity_list"),
 ]

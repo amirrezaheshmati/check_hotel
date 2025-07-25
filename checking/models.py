@@ -24,6 +24,7 @@ class Commodity(models.Model) :
     hour_added = models.IntegerField()
     code = models.CharField(max_length=10)
     descript = models.TextField()
+    show_in_list = models.BooleanField(default=True)
     
     def __str__(self):
         return self.name

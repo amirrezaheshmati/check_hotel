@@ -71,6 +71,11 @@ def guest_list(request) :
     context = {"pearson" : pearson}
     return render(request , "checking/guest_list.html" , context)
 
+def commedity_list(request) :
+    pearson = Commodity.objects.order_by("date_added").filter(show_in_list=True)
+    context = {"pearson" : pearson}
+    return render(request , "checking/commedity_list.html" , context)
+
 def delete_guest(request , guest_id) :
     pearson = GuestEntry.objects.get(id=guest_id)
     if request.method == "POST" :
