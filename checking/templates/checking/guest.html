@@ -2,5 +2,6 @@
 {% block content %}
 <p>Guest:</p>
 <p><a href="{% url 'checking:guest_entry' %}">Entry</a> - 
-Delete - List - <a href="{% url 'checking:guest_history' %}">History</a></p>
+<a href="{% url 'checking:guest_list' %}">List</a> - 
+<a href="{% url 'checking:guest_history' %}">History</a></p>
 {% endblock content %}

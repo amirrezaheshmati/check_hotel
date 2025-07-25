@@ -1,0 +1,18 @@
+{% extends "checking/base.html" %}
+{% block content %}
+<p>Guest List</p>
+<ul>
+    {% for pers in pearson %}
+    <li>
+        <p>name : {{pers.name}}</p>
+        <p>date : {{pers.real_date_added}} , hour : {{pers.hour_added}}</p>
+        <p>number phone: {{pers.number_phone}}</p>
+        <p>pearson post : {{pers.pearson_post}}</p>
+        <p>pearson code : {{pers.pearson_code}}</p>
+        <p>origin place : {{pers.origin_place}}</p>
+    </li>
+    {% empty %}
+    <li>nothing</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

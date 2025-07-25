@@ -65,3 +65,8 @@ def inspecter_entry(request) :
     
     context = {"form" : form}
     return render(request , "checking/inspecter_entry.html" , context)
+
+def guest_list(request) :
+    pearson = GuestEntry.objects.order_by("date_added")
+    context = {"pearson" : pearson}
+    return render(request , "checking/guest_list.html" , context)
