@@ -12,7 +12,8 @@ class GuestEntry(models.Model) :
     pearson_code = models.CharField(max_length=10)
     pearson_post = models.CharField(max_length=60 , default=" ")
     origin_place = models.CharField(max_length=30 , default="Tabriz")
-
+    show_in_list = models.BooleanField(default=True)
+    
     def __str__(self):
         return self.name
 

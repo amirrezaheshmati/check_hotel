@@ -1,0 +1,9 @@
+{% extends "checking/base.html" %}
+{% block content %}
+<p>name : {{pearson.name}}</p>
+<form action="{% url 'checking:delete_guest' pearson.id %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button name="submit">Delete</button>
+</form>
+{% endblock content %}

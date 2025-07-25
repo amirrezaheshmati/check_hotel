@@ -10,6 +10,7 @@
         <p>pearson post : {{pers.pearson_post}}</p>
         <p>pearson code : {{pers.pearson_code}}</p>
         <p>origin place : {{pers.origin_place}}</p>
+        <p><a href="{% url 'checking:delete_guest' pers.id %}">Delete</a></p>
     </li>
     {% empty %}
     <li>nothing</li>

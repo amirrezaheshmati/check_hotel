@@ -1,4 +1,4 @@
-from django.shortcuts import render , redirect
+from django.shortcuts import render , redirect 
 from .forms import GuestEntryy , CommodityEntry , InspecterEntry
 
 from .models import GuestEntry , Commodity , Inspecter
@@ -67,6 +67,15 @@ def inspecter_entry(request) :
     return render(request , "checking/inspecter_entry.html" , context)
 
 def guest_list(request) :
-    pearson = GuestEntry.objects.order_by("date_added")
+    pearson = GuestEntry.objects.order_by("date_added").filter(show_in_list=True)
     context = {"pearson" : pearson}
     return render(request , "checking/guest_list.html" , context)
+
+def delete_guest(request , guest_id) :
+    pearson = GuestEntry.objects.get(id=guest_id)
+    if request.method == "POST" :
+        pearson.show_in_list = False
+        pearson.save()
+        return redirect("checking:guest_list")
+    context = {"pearson" : pearson}
+    return render(request , "checking/delete_guest.html" , context)
