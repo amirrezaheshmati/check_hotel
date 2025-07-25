@@ -1,16 +1,22 @@
 {% extends "checking/base.html" %}
 {% block content %}
+<p><a href="{% url 'checking:inspecter' %}" style="text-decoration: none;">Inspecter</a></p>
 <p>Inspecter History :</p>
 <ul>
     {% for pers in pearson %}
     <li>
-        <p>date added : {{pers.real_date_added}} , hour : {{pers.hour_added}} </p>
-        <p>name : {{pers.name}}</p>
-        <p>number phone : {{pers.number_phone}} </p>
-        <p>pearson post : {{pers.pearsone_post}} </p>
-        <p>origin place : {{pers.origin_place}} </p>
-        <p>descript : {{pers.descript}} </p>
-        <p>created by : {{pers.owner_ins_c}}</p>
+<div class="card text-bg-dark mb-5" style="max-width: 18rem;">
+  <div class="card-header" style="background-color: darkgray;color: black;">name : {{pers.name}}</div>
+  <div class="card-body" style="background-color: lightgray;">
+    <h5 class="card-title">date added : {{pers.real_date_added}} , </h5>
+    <h5 class="card-title">hour : {{pers.hour_added}} </h5>
+    <p class="card-text">number phone : {{pers.number_phone}} </p>
+    <p class="card-text">pearson post : {{pers.pearsone_post}} </p>
+    <p class="card-text">origin place : {{pers.origin_place}} </p>
+    <p class="card-text">descript : {{pers.descript}} </p>
+    <p class="card-text">created by : {{pers.owner_ins_c}}</p>
+  </div>
+</div>
     </li>
     {% empty %}
     <li>nothing</li>

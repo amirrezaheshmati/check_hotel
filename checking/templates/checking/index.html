@@ -1,4 +1,11 @@
 {% extends "checking/base.html" %}
-{% block content %}
-<p>Wellcome to checking site</p>
-{% endblock content %}
+{% block page_header %}
+<div class="jumbotron" style="padding-bottom: 20%; ">
+<h3 class="display-8" style="margin-top: 10%;"><a href="{% url 'checking:guest' %}" style=" 
+text-decoration: none">Guest</a></h3>
+<h3 class="display-8" style="margin-top: 10%;"><a href="{% url 'checking:commodity' %}" style=" 
+text-decoration: none">commodity</a></h3>
+<h3 class="display-8" style="margin-top: 10%;"><a href="{% url 'checking:inspecter' %}" style=" 
+text-decoration: none">inspecter</a></h3>
+</div>
+{% endblock page_header %}

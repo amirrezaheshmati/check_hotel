@@ -1,16 +1,21 @@
 {% extends "checking/base.html" %}
 {% block content %}
+<p><a href="{% url 'checking:commodity' %}" style="text-decoration: none;">Commodity</a></p>
 <p>Commodity History</p>
 <ul>
     {% for pers in pearson %}
     <li>
-        <p>date added : {{pers.real_date_added}} , hour : {{pers.hour_added}}</p>
-        <p>name : {{pers.name}}</p>
-        <p>commodity code : {{pers.code}}</p>
-        <p>descript : {{pers.descript}}</p>
-        <p>exit time : {{pers.date_exit}}</p>
-        <p>created by : {{pers.owner_com_c}}</p>
-        <p>deleted by : {{pers.owner_com_d}}</p>
+        <div class="card text-bg-dark mb-5" style="max-width: 18rem;">
+  <div class="card-header" style="background-color: darkgray; color: black;">name : {{pers.name}}</div>
+  <div class="card-body" style="background-color: lightgray;">
+    <h5 class="card-title">date added : {{pers.real_date_added}} , hour : {{pers.hour_added}}</h5>
+    <p class="card-text">commodity code : {{pers.code}}</p>
+    <p class="card-text">exit time : {{pers.date_exit}}</p>
+    <p class="card-text">created by : {{pers.owner_com_c}}</p>
+    <p class="card-text">deleted by : {{pers.owner_com_d}}</p>
+    <p class="card-text">descript : {{pers.descript}}</p>
+</div>
+</div>
     </li>
     {% empty %}
     <li>nothing</li>

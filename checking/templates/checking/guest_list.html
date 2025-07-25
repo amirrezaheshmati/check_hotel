@@ -1,16 +1,22 @@
 {% extends "checking/base.html" %}
 {% block content %}
+<p class="card-text"><a href="{% url 'checking:guest'%}" style="text-decoration: none;">Guest</a></p>
 <p>Guest List</p>
 <ul>
     {% for pers in pearson %}
     <li>
-        <p>name : {{pers.name}}</p>
-        <p>date : {{pers.real_date_added}} , hour : {{pers.hour_added}}</p>
-        <p>number phone: {{pers.number_phone}}</p>
-        <p>pearson post : {{pers.pearson_post}}</p>
-        <p>pearson code : {{pers.pearson_code}}</p>
-        <p>origin place : {{pers.origin_place}}</p>
-        <p><a href="{% url 'checking:delete_guest' pers.id %}">Delete</a></p>
+<div class="card text-bg-dark mb-5" style="max-width: 18rem;">
+  <div class="card-header" style="background-color: darkgray; color: black;">name : {{pers.name}}</div>
+  <div class="card-body" style="background-color: lightgray;">
+    <h5 class="card-title">date : {{pers.real_date_added}} , </h5>
+    <h5 class="card-title">hour : {{pers.hour_added}}</h5>
+    <p class="card-text">number phone: {{pers.number_phone}}</p>
+    <p class="card-text">pearson post : {{pers.pearson_post}}</p>
+    <p class="card-text">pearson code : {{pers.pearson_code}}</p>
+    <p class="card-text">origin place : {{pers.origin_place}}</p>
+    <p class="card-text"><a href="{% url 'checking:delete_guest' pers.id %}" style="text-decoration: none;" >Delete</a></p>
+  </div>
+</div>
     </li>
     {% empty %}
     <li>nothing</li>

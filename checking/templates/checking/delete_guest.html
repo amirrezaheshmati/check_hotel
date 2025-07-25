@@ -1,9 +1,13 @@
 {% extends "checking/base.html" %}
+{% load bootstrap4 %}
 {% block content %}
+<p><a href="{% url 'checking:guest_list' %}" style="text-decoration: none;">Guest</a></p>
 <p>name : {{pearson.name}}</p>
-<form action="{% url 'checking:delete_guest' pearson.id %}" method="post">
+<form action="{% url 'checking:delete_guest' pearson.id %}" method="post" class="form">
     {% csrf_token %}
-    {{form.as_p}}
-    <button name="submit">Delete</button>
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button name="submit" class="btn btn-primary">Delete</button>
+    {% endbuttons %}
 </form>
 {% endblock content %}

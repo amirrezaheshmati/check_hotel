@@ -1,8 +1,12 @@
 {% extends "checking/base.html" %}
-{% block content %}
-<p>Commodity :</p>
-<p><a href="{% url 'checking:commodity_entry' %}">Entry</a> -
-<a href="{% url 'checking:commedity_list' %}">List</a> - 
-<a href="{% url 'checking:commodity_history' %}">History</a>
-</p>
-{% endblock content %}
+{% block page_header %}
+<div class="jumbotron" style="padding-bottom: 20%; ">
+<h3 class="display-4">Commodity</h3>
+<h3 class="display-8" style="margin-top: 10%;"><a href="{% url 'checking:commodity_entry' %}" style=" 
+text-decoration: none">Entry</a></h3>
+<h3 class="display-8" style="margin-top: 10%;"><a href="{% url 'checking:commedity_list' %}" style=" 
+text-decoration: none">List</a></h3>
+<h3 class="display-8" style="margin-top: 10%;"><a href="{% url 'checking:commodity_history' %}" style=" 
+text-decoration: none">History</a></h3>
+</div>
+{% endblock page_header %}
