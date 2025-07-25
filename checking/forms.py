@@ -26,3 +26,15 @@ class InspecterEntry(forms.ModelForm) :
         labels = {"name" : "name", "real_date_added" :"date" , "hour_added" : "hour",
         "pearsone_post" : "pearson post", "number_phone" :"number phone" ,
         "origin_place" : "origin place", "descript" : "descript"}
+
+class ExitTimeGuest(forms.ModelForm) :
+    class Meta :
+        model = GuestEntry
+        fields = ["date_exit"]
+        labels = {"date_exit" : "exit time"}
+        
+class ExitTimeCommedity(forms.ModelForm) :
+    class Meta :
+        model = GuestEntry
+        fields = ["date_exit"]
+        labels = {"date_exit" : "exit time"}

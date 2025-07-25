@@ -1,5 +1,6 @@
 from django.shortcuts import render , redirect 
-from .forms import GuestEntryy , CommodityEntry , InspecterEntry
+from .forms import GuestEntryy , CommodityEntry , InspecterEntry , ExitTimeGuest , ExitTimeCommedity
+import jdatetime
 
 from .models import GuestEntry , Commodity , Inspecter
 # Create your views here.
@@ -78,18 +79,26 @@ def commedity_list(request) :
 
 def delete_guest(request , guest_id) :
     pearson = GuestEntry.objects.get(id=guest_id)
-    if request.method == "POST" :
+    if request.method != "POST" :
+        form = ExitTimeGuest()
+    else :
         pearson.show_in_list = False
+        form = ExitTimeGuest(data=request.POST)
         pearson.save()
+        form.save()
         return redirect("checking:guest_list")
-    context = {"pearson" : pearson}
+    context = {"pearson" : pearson , "form" : form}
     return render(request , "checking/delete_guest.html" , context)
 
 def delete_commedity(request , commedity_id) :
     pearson = Commodity.objects.get(id= commedity_id)
-    if request.method == "POST" :
+    if request.method != 'POST' :
+        form = ExitTimeCommedity()
+    else :
+        form = ExitTimeCommedity(data=request.POST)
         pearson.show_in_list = False
         pearson.save()
+        form.save()
         return redirect("checking:commedity_list")
-    context = {"pearson" : pearson}
+    context = {"pearson" : pearson , "form" : form}
     return render(request , "checking/delete_commedity.html" , context)
