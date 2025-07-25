@@ -1,7 +1,12 @@
+{% if user.is_authenticated %}
+<p>hello {{user.username}}</p>
 <p>
     <a href="{% url 'checking:index' %}">Home</a> -
     <a href="{% url 'checking:guest' %}">Guest</a> -
     <a href="{% url 'checking:commodity' %}">Commodity</a> - 
     <a href="{% url 'checking:inspecter' %}">Inspecter</a>
 </p>
+{% else %}
+<p><a href="{% url 'users:login' %}">Log in</a></p>
+{% endif %}
 {% block content %}{% endblock content %}

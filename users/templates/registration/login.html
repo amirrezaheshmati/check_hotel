@@ -1,0 +1,12 @@
+{% extends "checking/base.html" %}
+{% block content %}
+{% if form.errors %}
+<p>again</p>
+{% endif %}
+<form action="{% url 'users:login' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button name="submit">Log in</button>
+    <input type="hidden" name="next" value="{% url 'checking:index' %}">
+</form>
+{% endblock content %}
