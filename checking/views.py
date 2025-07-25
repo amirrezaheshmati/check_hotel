@@ -11,6 +11,9 @@ def guest(request) :
 def commodity(request) :
     return render(request , "checking/commodity.html")
 
+def inspecter(request) :
+    return render(request , "checking/inspecter.html")
+
 def guest_history(request) :
     person = GuestEntry.objects.order_by("-date_added")
     context = {"person" : person}

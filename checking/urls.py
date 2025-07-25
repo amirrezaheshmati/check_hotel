@@ -6,7 +6,8 @@ app_name = "checking"
 urlpatterns = [
     path("" , views.index , name="index"),
     path("guest/" , views.guest , name="guest"),
-    path("guest_history/" , views.guest_history , name="guest_history"),
     path("commodity/" , views.commodity , name="commodity"),
+    path("inspecter/" , views.inspecter , name="inspecter"),
+    path("guest_history/" , views.guest_history , name="guest_history"),
     path("commodity_history/" , views.commodity_history , name="commodity_history"),
 ]
