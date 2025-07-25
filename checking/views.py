@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
+from .forms import GuestEntryy
 
 from .models import GuestEntry , Commodity , Inspecter
 # Create your views here.
@@ -28,3 +29,16 @@ def inspecter_history(request) :
     pearson = Inspecter.objects.order_by("-date_added")
     context = {"pearson" : pearson}
     return render(request , "checking/inspecter_history.html" , context)
+
+def guest_entry(request) :
+    if request.method != "POST" :
+        form = GuestEntryy()
+    else : 
+        form = GuestEntryy(data = request.POST)
+        if form.is_valid() :
+            form.save()
+            return redirect("checking:guest")
+    
+    context = {"form" : form}
+    return render(request, "checking/guest_entry.html" , context)
+            

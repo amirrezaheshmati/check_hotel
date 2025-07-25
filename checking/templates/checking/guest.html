@@ -1,4 +1,5 @@
 {% extends "checking/base.html" %}
 {% block content %}
-<p>Entry - Delete - List - <a href="{% url 'checking:guest_history' %}">History</a></p>
+<p><a href="{% url 'checking:guest_entry' %}">Entry</a> - 
+Delete - List - <a href="{% url 'checking:guest_history' %}">History</a></p>
 {% endblock content %}
