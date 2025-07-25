@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import GuestEntry , Commodity
+from .models import GuestEntry , Commodity , Inspecter
 
 class GuestEntryy(forms.ModelForm) :
     class Meta :
@@ -17,3 +17,12 @@ class CommodityEntry(forms.ModelForm) :
         "code" , "descript"]
         labels = {"name" : "name", "real_date_added" :"date" , "hour_added" : "hour"
         ,"code" : "code" , "descript" : "descript"}
+    
+class InspecterEntry(forms.ModelForm) :
+    class Meta :
+        model = Inspecter
+        fields = ["name" , "real_date_added" , "hour_added",
+        "pearsone_post" , "number_phone" , "origin_place" , "descript"]
+        labels = {"name" : "name", "real_date_added" :"date" , "hour_added" : "hour",
+        "pearsone_post" : "pearson post", "number_phone" :"number phone" ,
+        "origin_place" : "origin place", "descript" : "descript"}

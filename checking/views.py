@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect
-from .forms import GuestEntryy , CommodityEntry
+from .forms import GuestEntryy , CommodityEntry , InspecterEntry
 
 from .models import GuestEntry , Commodity , Inspecter
 # Create your views here.
@@ -53,3 +53,15 @@ def commodity_entry(request) :
     
     context = {"form" : form}
     return render(request , "checking/commodity_entry.html" , context)
+
+def inspecter_entry(request) :
+    if request.method != "POST" :
+        form = InspecterEntry()
+    else :
+        form = InspecterEntry(data= request.POST)
+        if form.is_valid() :
+            form.save()
+            return redirect("checking:inspecter")
+    
+    context = {"form" : form}
+    return render(request , "checking/inspecter_entry.html" , context)
