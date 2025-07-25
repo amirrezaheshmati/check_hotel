@@ -1,5 +1,6 @@
 from django.db import models
 import jdatetime
+from django.contrib.auth.models import User
 # Create your models here.
 #guest , inspecter , commodity
 
@@ -15,7 +16,8 @@ class GuestEntry(models.Model) :
     origin_place = models.CharField(max_length=30 , default="Tabriz")
     show_in_list = models.BooleanField(default=True)
     date_exit = models.CharField(max_length=15 , default=str(jdatetime.datetime.now().strftime("%Y/%m/%d")))
-    #date_exit = models.
+    owner_gue_c = models.ForeignKey(User , on_delete=models.CASCADE,related_name="gue_c" , null=True , blank=True )
+    owner_gue_d = models.ForeignKey(User , on_delete=models.CASCADE,related_name="gue_d" , null=True , blank=True)
     
     def __str__(self):
         return self.name
@@ -29,6 +31,8 @@ class Commodity(models.Model) :
     code = models.CharField(max_length=10)
     descript = models.TextField()
     show_in_list = models.BooleanField(default=True)
+    owner_com_c = models.ForeignKey(User , on_delete=models.CASCADE , related_name="com_c", null=True , blank=True)
+    owner_com_d = models.ForeignKey(User , on_delete=models.CASCADE ,related_name="com_d" , null=True , blank=True)
     
     def __str__(self):
         return self.name
@@ -44,6 +48,7 @@ class Inspecter(models.Model) :
     origin_place = models.CharField(max_length=30 , default="Tabriz")
     descript = models.TextField()
     date_exit = models.CharField(max_length=15 , default=str(jdatetime.datetime.now().strftime("%Y/%m/%d")))
+    owner_ins_c = models.ForeignKey(User , on_delete=models.CASCADE , related_name="ins_c")
     
     def __str__(self):
         return self.name

@@ -37,7 +37,9 @@ def guest_entry(request) :
     else : 
         form = GuestEntryy(data = request.POST)
         if form.is_valid() :
-            form.save()
+            new_guest = form.save(commit=False)
+            new_guest.owner_gue_c = request.user
+            new_guest.save()
             return redirect("checking:guest")
     
     context = {"form" : form}
@@ -49,7 +51,9 @@ def commodity_entry(request) :
     else :
         form = CommodityEntry(data=request.POST)
         if form.is_valid() :
-            form.save()
+            new_commedity = form.save(commit=False)
+            new_commedity.owner_com_c = request.user
+            new_commedity.save()
             return redirect("checking:commodity")
     
     context = {"form" : form}
@@ -61,7 +65,9 @@ def inspecter_entry(request) :
     else :
         form = InspecterEntry(data= request.POST)
         if form.is_valid() :
-            form.save()
+            new_inspecter = form.save(commit=False)
+            new_inspecter.owner_ins_c = request.user
+            new_inspecter.save()
             return redirect("checking:inspecter")
     
     context = {"form" : form}
@@ -84,8 +90,9 @@ def delete_guest(request , guest_id) :
     else :
         pearson.show_in_list = False
         form = ExitTimeGuest(data=request.POST)
+        form.save(commit=False)
+        pearson.owner_gue_d = request.user
         pearson.save()
-        form.save()
         return redirect("checking:guest_list")
     context = {"pearson" : pearson , "form" : form}
     return render(request , "checking/delete_guest.html" , context)
@@ -97,8 +104,9 @@ def delete_commedity(request , commedity_id) :
     else :
         form = ExitTimeCommedity(data=request.POST)
         pearson.show_in_list = False
+        form.save(commit=False)
+        pearson.owner_com_d = request.user
         pearson.save()
-        form.save()
         return redirect("checking:commedity_list")
     context = {"pearson" : pearson , "form" : form}
     return render(request , "checking/delete_commedity.html" , context)
