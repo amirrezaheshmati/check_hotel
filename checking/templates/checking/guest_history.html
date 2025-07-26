@@ -1,27 +1,27 @@
 {% extends "checking/base.html" %}
 {% block content %}
-<p><a href="{% url 'checking:guest' %}" style="text-decoration: none;">Guest</a></p>
-<p>Guest History</p>
+<p><a href="{% url 'checking:guest' %}" style="text-decoration: none;">بازگشت</a></p>
+<p>تاریخچه مهمان ها</p>
 <ul>
     {% for pers in person %}
     <li>
 <div class="card text-bg-dark mb-5" style="max-width: 18rem;">
-  <div class="card-header" style="background-color: darkgray; color: black;">name : {{pers.name}}</div>
+  <div class="card-header" style="background-color: darkgray; color: black;">نام: {{pers.name}}</div>
   <div class="card-body" style="background-color: lightgray;">
-    <h5 class="card-title">date : {{pers.real_date_added}} ,</h5>
-    <h5 class="card-title">hour : {{pers.hour_added}}</h5>
-    <p class="card-text">number phone: {{pers.number_phone}}</p>
-    <p class="card-text">pearson post : {{pers.pearson_post}}</p>
-    <p class="card-text">pearson code : {{pers.pearson_code}}</p>
-    <p class="card-text">origin place : {{pers.origin_place}}</p>
-    <p class="card-text">exit time : {{pers.date_exit}}</p>
-    <p class="card-text">created by : {{pers.owner_gue_c}}</p>
-    <p class="card-text">deleted by : {{pers.owner_gue_d}}</p>
+    <h5 class="card-title">تاریخ ورود : {{pers.real_date_added}} ,</h5>
+    <h5 class="card-title">ساعت ورود : {{pers.hour_added}}</h5>
+    <p class="card-text">شماره تماس: {{pers.number_phone}}</p>
+    <p class="card-text">مقام مهمان: {{pers.pearson_post}}</p>
+    <p class="card-text">کد انحصاری : {{pers.pearson_code}}</p>
+    <p class="card-text">مکان مبدا : {{pers.origin_place}}</p>
+    <p class="card-text">تاریخ خروج : {{pers.date_exit}}</p>
+    <p class="card-text">ایجاد شده توسط : {{pers.owner_gue_c}}</p>
+    <p class="card-text">حذف شده توسط : {{pers.owner_gue_d}}</p>
   </div>
 </div>
     </li>
     {% empty %}
-    <li>nothing</li>
+    <li>خالی</li>
     {% endfor %}
 </ul>
 {% endblock content %}

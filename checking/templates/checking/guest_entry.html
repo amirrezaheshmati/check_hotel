@@ -1,12 +1,12 @@
 {% extends "checking/base.html" %}
 {% load bootstrap4 %}
 {% block content %}
-<p><a href="{% url 'checking:guest' %}" style="text-decoration: none;">Guest</a></p>
+<p><a href="{% url 'checking:guest' %}" style="text-decoration: none;">بازگشت</a></p>
 <form action="{% url 'checking:guest_entry' %}" method="post" class="form">
     {% csrf_token %}
     {% bootstrap_form form %}
     {% buttons %}
-    <button name="submit" class="btn btn-primary">Enter</button>
+    <button name="submit" class="btn btn-primary">اضافه کردن</button>
     {% endbuttons %}
 </form>
 {% endblock content %}

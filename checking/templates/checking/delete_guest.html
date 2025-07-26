@@ -1,13 +1,13 @@
 {% extends "checking/base.html" %}
 {% load bootstrap4 %}
 {% block content %}
-<p><a href="{% url 'checking:guest_list' %}" style="text-decoration: none;">Guest</a></p>
-<p>name : {{pearson.name}}</p>
+<p><a href="{% url 'checking:guest_list' %}" style="text-decoration: none;">بازگشت</a></p>
+<p>نام و نام خانوادگی: {{pearson.name}}</p>
 <form action="{% url 'checking:delete_guest' pearson.id %}" method="post" class="form">
     {% csrf_token %}
     {% bootstrap_form form %}
     {% buttons %}
-    <button name="submit" class="btn btn-primary">Delete</button>
+    <button name="submit" class="btn btn-primary">خروج</button>
     {% endbuttons %}
 </form>
 {% endblock content %}

@@ -1,23 +1,24 @@
 {% extends "checking/base.html" %}
 {% block content %}
-<p><a href="{% url 'checking:commodity' %}" style="text-decoration: none;">Commodity</a></p>
-<p>Commedity List:</p>
+<p><a href="{% url 'checking:commodity' %}" style="text-decoration: none;">بازگشت</a></p>
+<p>لیست اقلام موجود :</p>
 <ul>
     {% for pers in pearson %}
     <li>
         <div class="card text-bg-dark mb-5" style="max-width: 18rem;">
-  <div class="card-header" style="background-color: darkgrey; color: black;">name : {{pers.name}}</div>
+  <div class="card-header" style="background-color: darkgrey; color: black;">نام : {{pers.name}}</div>
   <div class="card-body" style="background-color: lightgrey;">
-    <h5 class="card-title">date added : {{pers.real_date_added}} , hour : {{pers.hour_added}}</h5>
-    <p class="card-text">commodity code : {{pers.code}}</p>
-    <p class="card-text">descript : {{pers.descript}}</p>
+    <h5 class="card-title">تاریخ ورود : {{pers.real_date_added}} , </h5>
+    <h5 class="card-title">ساعت ورود : {{pers.hour_added}}</h5>
+    <p class="card-text">کد انحصاری : {{pers.code}}</p>
+    <p class="card-text">توضیحات : {{pers.descript}}</p>
     <p><a href="{% url 'checking:delete_commedity' pers.id %}" class="card-text"
-        style="text-decoration: none;">Delete</a></p>
+        style="text-decoration: none;">حذف</a></p>
   </div>
   </div>
     </li>
     {% empty %}
-    <li>nothing</li>
+    <li>خالی</li>
     {% endfor %}
 </ul>
 
