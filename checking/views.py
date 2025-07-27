@@ -88,12 +88,15 @@ def delete_guest(request , guest_id) :
     if request.method != "POST" :
         form = ExitTimeGuest()
     else :
-        pearson.show_in_list = False
         form = ExitTimeGuest(data=request.POST)
-        form.save(commit=False)
-        pearson.owner_gue_d = request.user
-        pearson.save()
-        return redirect("checking:guest_list")
+        if form.is_valid() :
+            exit_instance = form.save(commit=False)
+            exit_instance.guest = pearson
+            exit_instance.owner_gue_d = request.user
+            exit_instance.save()
+            pearson.show_in_list = False
+            pearson.save()
+            return redirect("checking:guest_list")
     context = {"pearson" : pearson , "form" : form}
     return render(request , "checking/delete_guest.html" , context)
 
@@ -103,10 +106,13 @@ def delete_commedity(request , commedity_id) :
         form = ExitTimeCommedity()
     else :
         form = ExitTimeCommedity(data=request.POST)
-        pearson.show_in_list = False
-        form.save(commit=False)
-        pearson.owner_com_d = request.user
-        pearson.save()
-        return redirect("checking:commedity_list")
+        if form.is_valid() :
+            exit_instance = form.save(commit=False)
+            exit_instance.commodity = pearson
+            exit_instance.owner_com_d = request.user
+            exit_instance.save()
+            pearson.show_in_list = False
+            pearson.save()
+            return redirect("checking:commedity_list")
     context = {"pearson" : pearson , "form" : form}
     return render(request , "checking/delete_commedity.html" , context)

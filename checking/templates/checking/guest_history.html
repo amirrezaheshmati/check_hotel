@@ -14,9 +14,14 @@
     <p class="card-text">مقام مهمان: {{pers.pearson_post}}</p>
     <p class="card-text">کد انحصاری : {{pers.pearson_code}}</p>
     <p class="card-text">مکان مبدا : {{pers.origin_place}}</p>
-    <p class="card-text">تاریخ خروج : {{pers.date_exit}}</p>
+    {% for exit in pers.exit.all %}
+    <p class="card-text">تاریخ خروج : {{exit.date_exit}}</p>
+    <p class="card-text">ساعت خروج : {{exit.hour_exit}}</p>
+    {% endfor %}
     <p class="card-text">ایجاد شده توسط : {{pers.owner_gue_c}}</p>
-    <p class="card-text">حذف شده توسط : {{pers.owner_gue_d}}</p>
+    {% for exit in pers.exit.all %}
+    <p class="card-text">حذف شده توسط : {{exit.owner_gue_d}}</p>
+    {% endfor %}
   </div>
 </div>
     </li>
