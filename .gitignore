@@ -1,9 +1,0 @@
-manage.py
-db.sqlite3
-tests.py
-apps.py
-__init__.py
-migrations
-wsgi.py
-asgi.py
-__pycache__
