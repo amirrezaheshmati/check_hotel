@@ -13,8 +13,9 @@ class GuestEntry(models.Model) :
     number_phone = models.CharField(max_length=11 , default="09")
     pearson_code = models.CharField(max_length=10)
     pearson_post = models.CharField(max_length=60 , default="")
-    origin_place = models.CharField(max_length=30 , default="تبریز")
+    origin_place = models.CharField(max_length=30 , default="تهران")
     show_in_list = models.BooleanField(default=True)
+    count = models.IntegerField()
     owner_gue_c = models.ForeignKey(User , on_delete=models.CASCADE,related_name="gue_c" , null=True , blank=True )
     
     def __str__(self):
@@ -36,6 +37,7 @@ class Commodity(models.Model) :
     code = models.CharField(max_length=10)
     descript = models.TextField()
     show_in_list = models.BooleanField(default=True)
+    count = models.IntegerField()
     owner_com_c = models.ForeignKey(User , on_delete=models.CASCADE , related_name="com_c", null=True , blank=True)
     
     def __str__(self):
@@ -56,7 +58,7 @@ class Inspecter(models.Model) :
     hour_added = models.IntegerField(default=int(now.strftime("%H")))
     number_phone = models.CharField(max_length=11 , default="09")
     pearsone_post = models.CharField(max_length=60, default="")
-    origin_place = models.CharField(max_length=30 , default="تبریز")
+    origin_place = models.CharField(max_length=30 , default="تهران")
     descript = models.TextField()
     date_exit = models.CharField(max_length=15 , default=str(jdatetime.datetime.now().strftime("%Y/%m/%d")))
     hour_exit = models.IntegerField(default=int(now.strftime("%H")))

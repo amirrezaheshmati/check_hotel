@@ -6,11 +6,12 @@
     {% for pers in pearson %}
     <li>
         <div class="card text-bg-dark mb-5" style="max-width: 18rem;">
-  <div class="card-header" style="background-color: darkgrey; color: black;">نام : {{pers.name}}</div>
+  <div class="card-header" style="background-color: darkgrey; color: black;"><h4>نام : {{pers.name}}</h4></div>
   <div class="card-body" style="background-color: lightgrey;">
     <h5 class="card-title">تاریخ ورود : {{pers.real_date_added}} , </h5>
     <h5 class="card-title">ساعت ورود : {{pers.hour_added}}</h5>
-    <p class="card-text">کد انحصاری : {{pers.code}}</p>
+    <p class="card-text">کد اموالی : {{pers.code}}</p>
+    <p class="card-text">تعداد اقلام : {{pers.count}}</p>
     <p class="card-text">توضیحات : {{pers.descript}}</p>
     <p><a href="{% url 'checking:delete_commedity' pers.id %}" class="card-text"
         style="text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
